@@ -37,6 +37,8 @@ function createRock(x) {
   var top = rock.style.top = 0
   GAME.appendChild(rock);
   rock.style.top = `${top += 2}px`;
+  if (checkCollision(rock)) {
+    endGame();
 }
   function moveRock() {
     // implement me!
@@ -55,21 +57,26 @@ function createRock(x) {
      * But if the rock *has* reached the bottom of the GAME,
      * we should remove the rock from the DOM
      */
-if (checkCollision(rock) === true){
-  endGame();
+
+   if (top < GAME_HEIGHT) {
+     window.requestAnimationFrame(moveRock)
+   }else {
+
+   }
+   rock.remove();
+   }
+
+
+  // We should kick of the animation of the rock around here
+
+  // Add the rock to ROCKS so that we can remove all rocks
+  // when there's a collision
+  window.requestAnimationFrame(moveRock)
+  ROCKS.push(rock)
+
+  // Finally, return the rock element you've created
+  return rock;
 }
-   else if (top < GAME_HEIGHT - 20) {
-     top += 4
-     rock.style.top = `${top}px`
-     window.requestAnimationFrame(moveRock);
-   }else if(top >= GAME_HEIGHT - 20) {
-     GAME.removeChild(rock);
-     ROCKS.shift();
-   }
-   moveRock();
-   }
-ROCKS.push(rock);
-return rock;
 
 /**
  * End the game by clearing `gameInterval`,
