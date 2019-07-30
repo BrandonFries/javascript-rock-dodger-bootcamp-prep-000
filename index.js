@@ -44,13 +44,14 @@ function createRock(x) {
    * This function moves the rock. (2 pixels at a time
    * seems like a good pace.)
    */
-   else if (positionToInteger(rock.style.top) < 380) {
+    if (top < GAME_HEIGHT) {
      window.requestAnimationFrame(moveRock);
-   }
-    else {
+   }else {
       rock.remove();
     }
     window.requestAnimationFrame(moveRock);
+    ROCKS.push(rock);
+    return rock;
 
   function moveRock() {
     // implement me!
