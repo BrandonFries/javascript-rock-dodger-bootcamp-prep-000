@@ -36,7 +36,7 @@ function createRock(x) {
   rock.style.left = `${x}px`;
   var top = rock.style.top = 0
   GAME.appendChild(rock);
-  rock.style.top = `${positionToInteger(rock.style.top) + 2}px`;
+  rock.style.top = `${top += 2}px`;
   if (checkCollision(rock)) {
     endGame();
   }
