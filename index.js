@@ -34,8 +34,7 @@ function createRock(x) {
   const rock = document.createElement('div');
   rock.className = 'rock';
   rock.style.left = `2px`;
-  var top = 0;
-  rock.style.top = top;
+  var top = rock.style.top = 0
   GAME.appendChild(rock);
   rock.style.top = `${positionToInteger(rock.style.top) + 2}px`;
   if (checkCollision(rock)) {
