@@ -31,7 +31,7 @@ function checkCollision(rock){
 }
 
 function createRock(x) {
-  var rock = document.createElement('div');
+  const rock = document.createElement('div');
   rock.className = 'rock';
   rock.style.left = `${x}px`;
   var top = rock.style.top = 0
@@ -48,7 +48,10 @@ function createRock(x) {
      * If a rock collides with the DODGER,
      * we should call endGame()
      */
-
+rock.style.top = `${top += 2}px`
+if (checkCollision(rock) === true) {
+  return endGame()
+}
     /**
      * Otherwise, if the rock hasn't reached the bottom of
      * the GAME, we want to move it again.
@@ -75,7 +78,7 @@ function createRock(x) {
   ROCKS.push(rock)
 
   // Finally, return the rock element you've created
-  return rock;
+  return rock
 }
 
 /**
