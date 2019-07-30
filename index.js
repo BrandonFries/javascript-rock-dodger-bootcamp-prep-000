@@ -39,19 +39,7 @@ function createRock(x) {
   rock.style.top = `${top += 2}px`;
   if (checkCollision(rock)) {
     endGame();
-  }
-  /**
-   * This function moves the rock. (2 pixels at a time
-   * seems like a good pace.)
-   */
-   else if (positionToInteger(rock.style.top) < 380) {
-     window.requestAnimationFrame(moveRock);
-   }
-    else {
-      rock.remove();
-    }
-    window.requestAnimationFrame(moveRock);
-
+}
   function moveRock() {
     // implement me!
     // (use the comments below to guide you!)
